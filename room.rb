@@ -15,4 +15,8 @@ class Room
     return @guests.length()
   end
 
+  def check_in_guest(guest)
+    @guests.push(guest)
+  end
+
 end
