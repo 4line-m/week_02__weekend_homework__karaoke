@@ -1,3 +1,5 @@
+require_relative('guest.rb')
+
 class Room
 
   attr_reader(:name, :max_capacity, :age_limit)
@@ -6,6 +8,11 @@ class Room
     @name = name
     @max_capacity = max_capacity
     @age_limit = age_limit
+    @guests = []
+  end
+
+  def number_of_guests
+    return @guests.length()
   end
 
 end
