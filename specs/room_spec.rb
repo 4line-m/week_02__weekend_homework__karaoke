@@ -6,7 +6,7 @@ class TestRoom < MiniTest::Test
 
   def setup()
     @room_1 = Room.new("Just Duet", 2, 18)
-    @room_2 = Room.new("Doo Doo Doo Re Minor", 10, 12)
+    @room_2 = Room.new("Doo Doo Doo Re Minor", 0, 12)
     @guest_1 = Guest.new("Aline", 31)
     @song_1 = Song.new("Eye of the Tiger", "Survivor", 4.04)
 
@@ -71,6 +71,12 @@ class TestRoom < MiniTest::Test
     @room_1.clear_all_songs()
     actual = @room_1.number_of_songs()
     assert_equal(0, actual)
+  end
+
+  def test_room_max_capacity_works()
+    @room_2.check_in_guest(@guest_1)
+    actual = "Sorry! This room only accepts 0 people."
+    assert_equal("Sorry! This room only accepts 0 people.", actual)
   end
 
 end

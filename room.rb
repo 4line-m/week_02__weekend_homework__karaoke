@@ -18,7 +18,10 @@ class Room
   end
 
   def check_in_guest(guest)
-    @guests.push(guest)
+    if @guests.count() > @max_capacity
+    return "Sorry! This room only accepts #{max_capacity} people."
+    else @guests.push(guest)
+    end
   end
 
   def check_out_guest(guest)
