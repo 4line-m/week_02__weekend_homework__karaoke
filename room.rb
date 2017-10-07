@@ -37,5 +37,12 @@ class Room
     @songs.push(song)
   end
 
+  def remove_song(song)
+    @songs.delete(song)
+  end
+
+  def clear_all_songs()
+    @songs.clear()
+  end
 
 end

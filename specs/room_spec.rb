@@ -5,7 +5,7 @@ require_relative('../room.rb')
 class TestRoom < MiniTest::Test
 
   def setup()
-    @room_1 = Room.new("Debauchery", 2, 18)
+    @room_1 = Room.new("Just Duet", 2, 18)
     @guest_1 = Guest.new("Aline", 31)
     @song_1 = Song.new("Eye of the Tiger", "Survivor", 4.04)
 
@@ -13,7 +13,7 @@ class TestRoom < MiniTest::Test
 
   def test_can_get_room_name
   actual = @room_1.name()
-  assert_equal("Debauchery", actual)
+  assert_equal("Just Duet", actual)
   end
 
   def test_can_get_room_max_capacity
@@ -58,6 +58,18 @@ class TestRoom < MiniTest::Test
     @room_1.add_song(@song_1)
     actual = @room_1.number_of_songs()
     assert_equal(1, actual)
+  end
+
+  def test_remove_song()
+    @room_1.remove_song(@song_1)
+    actual = @room_1.number_of_songs()
+    assert_equal(0, actual)
+  end
+
+  def test_clear_all_songs()
+    @room_1.clear_all_songs()
+    actual = @room_1.number_of_songs()
+    assert_equal(0, actual)
   end
 
 end
