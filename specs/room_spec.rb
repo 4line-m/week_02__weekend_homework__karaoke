@@ -6,6 +6,7 @@ class TestRoom < MiniTest::Test
 
   def setup()
     @room_1 = Room.new("Just Duet", 2, 18)
+    @room_2 = Room.new("Doo Doo Doo Re Minor", 10, 12)
     @guest_1 = Guest.new("Aline", 31)
     @song_1 = Song.new("Eye of the Tiger", "Survivor", 4.04)
 
@@ -22,8 +23,8 @@ class TestRoom < MiniTest::Test
   end
 
   def test_can_get_room_age_limit
-  actual = @room_1.age_limit()
-  assert_equal(18, actual)
+  actual = @room_2.age_limit()
+  assert_equal(12, actual)
   end
 
   def test_room_starts_with_zero_guests()
