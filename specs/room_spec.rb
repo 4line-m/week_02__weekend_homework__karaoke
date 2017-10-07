@@ -6,10 +6,9 @@ class TestRoom < MiniTest::Test
 
   def setup()
     @room_1 = Room.new("Debauchery", 2, 18)
-    @room_2 = Room.new("Cotton Candy", 10, 12)
     @guest_1 = Guest.new("Aline", 31)
-    @guest_2 = Guest.new("Patrick", 37)
-    @guest_3 = Guest.new("Jasper", 17)
+    @song_1 = Song.new("Eye of the Tiger", "Survivor", 4.04)
+
   end
 
   def test_can_get_room_name
@@ -48,6 +47,17 @@ class TestRoom < MiniTest::Test
     @room_1.check_out_all_guests()
     actual = @room_1.number_of_guests()
     assert_equal(0, actual)
+  end
+
+  def test_room_starts_with_zero_songs()
+  actual = @room_1.number_of_songs()
+  assert_equal(0, actual)
+  end
+
+  def test_add_song()
+    @room_1.add_song(@song_1)
+    actual = @room_1.number_of_songs()
+    assert_equal(1, actual)
   end
 
 end

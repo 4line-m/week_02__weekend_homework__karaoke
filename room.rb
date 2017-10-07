@@ -1,4 +1,5 @@
 require_relative('guest.rb')
+require_relative('song.rb')
 
 class Room
 
@@ -9,6 +10,7 @@ class Room
     @max_capacity = max_capacity
     @age_limit = age_limit
     @guests = []
+    @songs =[]
   end
 
   def number_of_guests
@@ -26,5 +28,14 @@ class Room
   def check_out_all_guests()
     return @guests.clear()
   end
+
+  def number_of_songs
+    return @songs.length()
+  end
+
+  def add_song(song)
+    @songs.push(song)
+  end
+
 
 end
