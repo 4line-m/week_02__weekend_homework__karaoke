@@ -3,12 +3,13 @@ require_relative('song.rb')
 
 class Room
 
-  attr_reader(:name, :max_capacity, :age_limit)
+  attr_reader(:name, :max_capacity, :age_limit, :fee)
 
-  def initialize(name, max_capacity, age_limit)
+  def initialize(name, max_capacity, age_limit, fee)
     @name = name
     @max_capacity = max_capacity
     @age_limit = age_limit
+    @fee = fee
     @guests = []
     @songs =[]
   end
@@ -18,6 +19,7 @@ class Room
   end
 
   def check_in_guest(guest)
+    for guest in @guests
     if @guests.count() >= @max_capacity
     return "Sorry! This room only accepts #{max_capacity} people."
     else @guests.push(guest)

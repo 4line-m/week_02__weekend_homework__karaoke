@@ -5,9 +5,9 @@ require_relative('../room.rb')
 class TestRoom < MiniTest::Test
 
   def setup()
-    @room_1 = Room.new("Just Duet", 2, 18)
-    @room_2 = Room.new("Doo Doo Doo Re Minor", 0, 12)
-    @guest_1 = Guest.new("Aline", 31)
+    @room_1 = Room.new("Just Duet", 2, 18, 10)
+    @room_2 = Room.new("Doo Doo Doo Re Minor", 0, 12, 10)
+    @guest_1 = Guest.new("Aline", 31, 50)
     @song_1 = Song.new("Eye of the Tiger", "Survivor", 4.04)
 
   end
@@ -25,6 +25,11 @@ class TestRoom < MiniTest::Test
   def test_can_get_room_age_limit
   actual = @room_2.age_limit()
   assert_equal(12, actual)
+  end
+
+  def test_can_get_room_fee
+  actual = @room_2.fee()
+  assert_equal(10, actual)
   end
 
   def test_room_starts_with_zero_guests()
@@ -78,5 +83,7 @@ class TestRoom < MiniTest::Test
     actual = "Sorry! This room only accepts 0 people."
     assert_equal("Sorry! This room only accepts 0 people.", actual)
   end
+
+  def
 
 end
