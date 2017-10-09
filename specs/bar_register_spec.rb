@@ -12,4 +12,5 @@ class TestBarRegister < MiniTest::Test
     result = @bar_register.cash()
     assert_equal(0, result)
   end
+  
 end

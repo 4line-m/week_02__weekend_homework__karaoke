@@ -1,6 +1,3 @@
-require_relative('guest.rb')
-require_relative('song.rb')
-
 class Room
 
   attr_reader(:name, :max_capacity, :age_limit, :fee)
@@ -18,12 +15,17 @@ class Room
     return @guests.length()
   end
 
-  def check_in_guest(guest)
-    for guest in @guests
-    if @guests.count() >= @max_capacity
-    return "Sorry! This room only accepts #{max_capacity} people."
-    else @guests.push(guest)
-    end
+  def check_in_guest(guest) #fee?
+# for guestin @guests
+      if @guests.count() > @max_capacity
+        return "Sorry! This room only accepts #{max_capacity} people."
+        #if @guests.funds() >= @fee
+        #return "Sorry! This room costs #{@fee}" and you only have #{@guests.funds()}
+        #else @bar_register.push(@guests.fee) or something
+        #######try calling fee on @check_in_guest!!!!!!!!!
+      else @guests.push(guest)
+      end
+#end
   end
 
   def check_out_guest(guest)

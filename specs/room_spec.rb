@@ -1,6 +1,9 @@
 require('minitest/autorun')
 require('minitest/rg')
 require_relative('../room.rb')
+require_relative('../guest.rb')
+require_relative('../song.rb')
+#require_relative("../bar_register.rb")
 
 class TestRoom < MiniTest::Test
 
@@ -9,32 +12,31 @@ class TestRoom < MiniTest::Test
     @room_2 = Room.new("Doo Doo Doo Re Minor", 0, 12, 10)
     @guest_1 = Guest.new("Aline", 31, 50)
     @song_1 = Song.new("Eye of the Tiger", "Survivor", 4.04)
-
   end
 
   def test_can_get_room_name
-  actual = @room_1.name()
-  assert_equal("Just Duet", actual)
+    actual = @room_1.name()
+    assert_equal("Just Duet", actual)
   end
 
   def test_can_get_room_max_capacity
-  actual = @room_1.max_capacity()
-  assert_equal(2, actual)
+    actual = @room_1.max_capacity()
+    assert_equal(2, actual)
   end
 
   def test_can_get_room_age_limit
-  actual = @room_2.age_limit()
-  assert_equal(12, actual)
+    actual = @room_2.age_limit()
+    assert_equal(12, actual)
   end
 
   def test_can_get_room_fee
-  actual = @room_2.fee()
-  assert_equal(10, actual)
+    actual = @room_2.fee()
+    assert_equal(10, actual)
   end
 
   def test_room_starts_with_zero_guests()
-  actual = @room_1.number_of_guests()
-  assert_equal(0, actual)
+    actual = @room_1.number_of_guests()
+    assert_equal(0, actual)
   end
 
   def test_room_can_check_in_guest()
@@ -56,8 +58,8 @@ class TestRoom < MiniTest::Test
   end
 
   def test_room_starts_with_zero_songs()
-  actual = @room_1.number_of_songs()
-  assert_equal(0, actual)
+    actual = @room_1.number_of_songs()
+    assert_equal(0, actual)
   end
 
   def test_add_song()
@@ -83,7 +85,5 @@ class TestRoom < MiniTest::Test
     actual = "Sorry! This room only accepts 0 people."
     assert_equal("Sorry! This room only accepts 0 people.", actual)
   end
-
-  def
 
 end
